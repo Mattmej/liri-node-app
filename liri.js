@@ -85,7 +85,12 @@ function spotifySong() {
             return console.log(error);
         }
 
-        // console.log(data.tracks.items[0]);
+        var bestMatch = data.tracks.items[0];
+
+        // console.log(bestMatch);
+        console.log("Name of Track: " + bestMatch.name);
+        console.log("Artist: " + bestMatch.artists[0].name);
+        console.log("Album: " + bestMatch.album.name);
         console.log("Song Link: " + data.tracks.items[0].external_urls.spotify);
     })
 
