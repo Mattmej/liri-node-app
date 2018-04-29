@@ -61,32 +61,44 @@ function showTweets() {
 function spotifySong() {
 
     var spotifySearch = new spotify(keys.spotify);
-    var song = "test";
+    var song = "";
     // var test = "this is a test";
     // console.log(test);
     // console.log(processArray[3]);
     // console.log(processArray[4]); 
     // console.log(test + " " + processArray[3]);  
 
-    for (i = 3; i < processArray; i++) {
+    for (i = 3; i < processArray.length; i++) {
         song = song + " " + processArray[i];
         // console.log(song);
     }
 
-    console.log(song);
+    // console.log(song);
 
 
+
+    spotifySearch.search({
+        type: "track",
+        query: song
+    }, function(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+
+        // console.log(data.tracks.items[0]);
+        console.log("Song Link: " + data.tracks.items[0].external_urls.spotify);
+    })
 
     // spotifySearch.search({
     //     type: "track",
     //     query: song
-    // }, function(error, data) {
-    //     if (error) {
-    //         return console.log(error);
-    //     }
-
-    //     console.log(data);
     // })
+    // .then(function(response) {
+    //     JSON.stringify(console.log(response.items));
+    // })
+    // .catch(function(error) {
+    //     console.log(error);
+    // });
 
 }
 
