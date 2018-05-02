@@ -1,6 +1,7 @@
 var dotenv = require("dotenv").config();
 var twitter = require("twitter");
 var spotify = require("node-spotify-api");
+var request = require("request");
 
 var keys = require("./keys.js");
 
@@ -105,6 +106,59 @@ function spotifySong() {
     //     console.log(error);
     // });
 
+    
+
+}
+
+function showMovieData() {
+
+    var movie = "";
+
+    for (i = 3; i < processArray.length; i++) {
+        // movie = movie + " " + processArray[i];
+        movie = movie + processArray[i] + "+";
+    }
+
+    // console.log(movie);
+
+    request("https://www.omdbapi.com/?apikey=de84cb34&t=" + movie, function(error, response, body) {
+        if (error) {
+            return console.log(error);
+        }
+
+        // console.log("Response:");
+        // console.log(response);
+        // console.log("------------------------");
+        // console.log("Body:");
+        // console.log(body);
+        // console.log(body.\'Title\');
+        // console.log(body.Year);
+
+        // console.log(response.body)
+        // var title = "Title";
+        // console.log(body.title);
+
+        var bodyObject = JSON.parse(body);
+
+        // console.log(bodyObject);
+
+        console.log("");
+
+        console.log("Title: " + bodyObject.Title);
+        console.log("Year: " + bodyObject.Year);
+        console.log("IMDB Rating: " + bodyObject.imdbRating);
+        console.log("Rotten Tomatoes Rating: " + bodyObject.Ratings[1].Value);
+        console.log("Country Produced: " + bodyObject.Country);
+        console.log("Language: " + bodyObject.Language);
+        console.log("");
+        console.log("Plot: " + bodyObject.Plot);
+        console.log("");
+        console.log("Actors: " + bodyObject.Actors);
+
+
+
+        /// maybe use json.parse?
+    })
 }
 
 
