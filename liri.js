@@ -2,6 +2,7 @@ var dotenv = require("dotenv").config();
 var twitter = require("twitter");
 var spotify = require("node-spotify-api");
 var request = require("request");
+var fs = require("fs");
 
 var keys = require("./keys.js");
 
@@ -9,27 +10,35 @@ var keys = require("./keys.js");
 var processArray = process.argv;
 // console.log(processArray);
 
-// choices for the different accepted arguments
-switch(process.argv[2]) {
-    // to display tweets
-    case "my-tweets":
-        showTweets();
-        break;
+function readCommands() {
 
-    // to spotify a song
-    case "spotify-this-song":
-        spotifySong();
-        break;
+    // choices for the different accepted arguments
+    switch(process.argv[2]) {
+        // to display tweets
+        case "my-tweets":
+            showTweets();
+            break;
 
-    // to look up a movie
-    case "movie-this":
-        showMovieData();
-        break;
+        // to spotify a song
+        case "spotify-this-song":
+            spotifySong();
+            break;
 
-    // to do what the text file says
-    case "do-what-it-says":
-        readTheRandomFile();
+        // to look up a movie
+        case "movie-this":
+            showMovieData();
+            break;
+
+        // to do what the text file says
+        case "do-what-it-says":
+            readTheRandomFile();
+    }
+
 }
+
+readCommands();
+
+
 
 function showTweets() {
     var client = new twitter(keys.twitter);
@@ -162,6 +171,24 @@ function showMovieData() {
 
 
         /// maybe use json.parse?
+    })
+}
+
+function readTheRandomFile() {
+    fs.readFile("random.txt", "utf8", function(error, data) {
+        if (error) {
+            return console.log(error);
+        }
+
+        // console.log(data);
+
+        var commands = data.trim().split(",");
+        // console.log(commands);
+
+        processArray[2] = commands[0];
+        processArray[3] = commands[1];
+
+        readCommands();
     })
 }
 
