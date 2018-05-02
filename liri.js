@@ -119,6 +119,10 @@ function showMovieData() {
         movie = movie + processArray[i] + "+";
     }
 
+    if (movie === "") {
+        movie = "mr+nobody";
+    }
+
     // console.log(movie);
 
     request("https://www.omdbapi.com/?apikey=de84cb34&t=" + movie, function(error, response, body) {
