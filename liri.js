@@ -129,7 +129,6 @@ function spotifySong() {
             // data.tracks.items[].artists is an array of objects.
             // each entry in that array is a different artist.
 
-            
 
             // this is an array
             var matches = data.tracks.items;
@@ -337,12 +336,3 @@ function readTheRandomFile() {
         readCommands();
     })
 }
-
-
-
-
-
-
-
-
-
