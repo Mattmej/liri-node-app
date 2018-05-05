@@ -1,11 +1,22 @@
+// Link to our .env file
 var dotenv = require("dotenv").config();
+
+// Link to twitter node module
 var twitter = require("twitter");
+
+// Link to spotify api node module
 var spotify = require("node-spotify-api");
+
+// Link to request node module
 var request = require("request");
+
+// Link to built-in fs module for reading files.
 var fs = require("fs");
 
+// Link to the keys.js file.
 var keys = require("./keys.js");
 
+// Easier way to store the command line arguments.
 var processArray = process.argv;
 // console.log(processArray);
 
@@ -35,6 +46,8 @@ function readCommands() {
         case "do-what-it-says":
             readTheRandomFile();
             break;
+        
+        // If any other command is entered, then...
         default:
             console.log("\nPlease enter a valid command!");
     }
@@ -203,6 +216,7 @@ function spotifySong() {
 
 }
 
+// Function for looking up a movie by name.
 function showMovieData() {
 
     // empty string to hold movie name
@@ -290,6 +304,7 @@ function showMovieData() {
     })
 }
 
+// Function for executing the command entered in the "random.txt" file.
 function readTheRandomFile() {
     fs.readFile("random.txt", "utf8", function(error, data) {
         if (error) {
@@ -298,12 +313,27 @@ function readTheRandomFile() {
 
         // console.log(data);
 
+        // this variable takes the text from the file, trims off excess spacing, and splits the text into 
+        // an array, with the separator between elements being a comma.
         var commands = data.trim().split(",");
+
         // console.log(commands);
 
-        processArray[2] = commands[0];
+        // This if/else statement is to prevent an infinite loop.
+        if (commands[0] === "do-what-it-says") {
+            throw new Error("Nice try...");
+        }
+
+        else {
+            // The command that will be read will be set to the first element of the command array.
+            processArray[2] = commands[0];
+        }
+
+        
+        // Any other commands will be covered by commands[1].
         processArray[3] = commands[1];
 
+        // runs the function to read the commands.
         readCommands();
     })
 }
