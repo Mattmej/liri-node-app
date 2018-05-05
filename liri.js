@@ -6,7 +6,6 @@ var fs = require("fs");
 
 var keys = require("./keys.js");
 
-
 var processArray = process.argv;
 // console.log(processArray);
 
@@ -195,15 +194,9 @@ function spotifySong() {
                 console.log("Sorry! Track not found!");
             }
 
-
-
         }
         
-
-        
     })
-
-    
 
 }
 
@@ -214,7 +207,6 @@ function showMovieData() {
 
     // This loop will add each argument the user enters to the "movie" string.
     for (i = 3; i < processArray.length; i++) {
-        // movie = movie + " " + processArray[i];
         movie = movie + processArray[i] + "+";
     }
 
@@ -223,26 +215,11 @@ function showMovieData() {
         movie = "mr+nobody";
     }
 
-    // console.log(movie);
-
-
     // request to the OMDB API
     request("https://www.omdbapi.com/?apikey=de84cb34&t=" + movie, function(error, response, body) {
         if (error) {
             return console.log(error);
         }
-
-        // console.log("Response:");
-        // console.log(response);
-        // console.log("------------------------");
-        // console.log("Body:");
-        // console.log(body);
-        // console.log(body.\'Title\');
-        // console.log(body.Year);
-
-        // console.log(response.body)
-        // var title = "Title";
-        // console.log(body.title);
 
         // converts the returned body from a string into an object
         var bodyObject = JSON.parse(body);
@@ -252,52 +229,60 @@ function showMovieData() {
         // spacing
         console.log("");
 
+        // If the movie exists, then...
         if (bodyObject.Response==="True") {
 
-            if (bodyObject.Title != null) {
-                console.log("Title: " + bodyObject.Title);
-            }
+            /* 
+            NOTE: The reason for all of these "if" statements is because some movies
+                    may have some of these fields missing.
+
+                For instance, some movies may not have a Rotten Tomatoes rating or a 
+                    listed country in which it was produced.
+            */
+
+            // Movie title
+            console.log("Title: " + bodyObject.Title);
     
+            // Year released
             if (bodyObject.Year != null) {
                 console.log("Year: " + bodyObject.Year);
             }
     
+            // IMDB Rating
             if (bodyObject.imdbRating != null) {
                 console.log("IMDB Rating: " + bodyObject.imdbRating);
             }
     
+            // Rotten Tomatoes Rating
             if (bodyObject.Ratings[1] != null) {
                 console.log("Rotten Tomatoes Rating: " + bodyObject.Ratings[1].Value);
             }
     
+            // Country
             if (bodyObject.Country != null) {
                 console.log("Country Produced: " + bodyObject.Country);
             }
     
+            // Language(s)
             if (bodyObject.Language) {
                 console.log("Language: " + bodyObject.Language);
             }
     
-            console.log("");
-    
+            // Plot
             if (bodyObject.Plot != null) {
-                console.log("Plot: " + bodyObject.Plot);
+                console.log("\nPlot: " + bodyObject.Plot + "\n");
             }
     
-            console.log("");
-    
+            // Actors
             if (bodyObject.Actors != null) {
                 console.log("Actors: " + bodyObject.Actors);
             }  
         }
 
+        // If the movie does not exist, then...
         else {
             console.log("Sorry! Movie not found!");
         }
-
-        
-
-
 
     })
 }
