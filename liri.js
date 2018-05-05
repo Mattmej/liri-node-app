@@ -75,6 +75,8 @@ function showTweets() {
 
 
 // Function for searching for a song by title on Spotify.
+// If no other commands are entered by the user, 
+// the function will spotify "The Sign" by the artist "Ace of Base"
 function spotifySong() {
 
     var spotifySearch = new spotify(keys.spotify);
@@ -82,18 +84,13 @@ function spotifySong() {
     // empty string to hold the user's song entry
     var song = "";
 
-    // var test = "this is a test";
-    // console.log(test);
-    // console.log(processArray[3]);
-    // console.log(processArray[4]); 
-    // console.log(test + " " + processArray[3]);  
-
     // this loop will loop through the user's entered text in the command line and 
     // add all that text to the "song" string variable.
     for (i = 3; i < processArray.length; i++) {
         song = song + " " + processArray[i];
     }
 
+    // if no song is entered, then the song will be set to "The Sign"
     if (song === "") {
         song = "The Sign";
     }
@@ -108,37 +105,55 @@ function spotifySong() {
             return console.log(error);
         }
 
+        // If a song name was not entered by the user, then...
         if (song === "The Sign") {
 
-            // "Ace of Base" track is here.
-            // console.log(data.tracks.items[5].artists);
+            // "Ace of Base" track is here:
             // data.tracks.items[5].artists[0].name
 
             // data.tracks.items[].artists is an array of objects.
             // each entry in that array is a different artist.
 
-            // loop through each of the spotify matches
+            
 
             // this is an array
             var matches = data.tracks.items;
-            var bestMatch;
-            // var index;
 
+            var bestMatch;
+
+            /* 
+
+            To find which item in data.tracks has the Ace of Base version, I will look at the artists array.
+            Each object is an artist.
+            To check if "Ace of Base" is one of the artists, I will store each objects' property values into an array,
+                and check the string "Ace of Base" against this array.
+            If the array contains "Ace of Base," then I have located the proper item index.
+            (Item index = i. Artist index = j)
+
+            */
+            
+            // loop through each of the spotify matches
             Loop1: 
             for (i = 0; i < matches.length; i++) {
 
+                // variable to store the array of artists.
                 var artistArray = data.tracks.items[i].artists;
                 
+                // loop through the artists in the array of artists.
                 Loop2:
                 for (j = 0; j < artistArray.length; j++) {
 
+                    // this variable will store the values of the current artist's property keys.
+                    // one of the keys is "name", and its corresponding value is the name of the artist.
                     var artistValueArray = Object.values(artistArray[j]);
+
+                    // if one of the values is "Ace of Base," then...
                     if (artistValueArray.includes("Ace of Base")) {
-                        bestMatch = data.tracks.items[i];
-                        console.log(i);
-                        break Loop1;
+                        bestMatch = data.tracks.items[i];                       // stores the proper match for "The Sign" by "Ace of Base."
+                        break Loop1;                                            // break out of both loops.
                     }
 
+                    // if not, then the loops will continue.
                     else {
                         continue;
                     }
@@ -147,43 +162,35 @@ function spotifySong() {
 
             }
 
+            
+            // Logs all relevant info.
             // console.log(bestMatch);
             console.log("\nName of Track: " + bestMatch.name);
-                console.log("Artist: " + bestMatch.artists[0].name);
-                console.log("Album: " + bestMatch.album.name);
-                console.log("Song Link: " + data.tracks.items[0].external_urls.spotify); 
+            console.log("Artist: " + bestMatch.artists[0].name);
+            console.log("Album: " + bestMatch.album.name);
+            console.log("Song Link: " + data.tracks.items[0].external_urls.spotify); 
 
-            /* 
-            To find which item in data.tracks has the Ace of Base version, I will look at the artists array.
-            Each object is an artist.
-            To check if "Ace of Base" is one of the artists, I will store each objects' property values into an array,
-                and check the string "Ace of Base" against this array.
-            If the array contains "Ace of Base," then I have located the proper item index.
-            (Item index = i. Artist index = j)
-            */
-
-            // console.log(matches);
-            // var artistArray = data.tracks.items[1].artists;
-            // console.log(artistArray);
-
-            // console.log("");
-            // console.log(data.tracks.items[1].artists[0].name);
         }
 
+        // If a song was entered by the user, then...
         else {
+
             // variable to hold the best match that spotify returns
             var bestMatch = data.tracks.items[0];
 
             // console.log(bestMatch);
 
+            // If the song exists, then...
             if (bestMatch != null) {
-            // displaying the song info to the command prompt
+
+                // displaying the song info to the command prompt
                 console.log("\nName of Track: " + bestMatch.name);
                 console.log("Artist: " + bestMatch.artists[0].name);
                 console.log("Album: " + bestMatch.album.name);
                 console.log("Song Link: " + data.tracks.items[0].external_urls.spotify); 
             }
 
+            // If the song does not exist, then... 
             else {
                 console.log("Sorry! Track not found!");
             }
@@ -195,17 +202,6 @@ function spotifySong() {
 
         
     })
-
-    // spotifySearch.search({
-    //     type: "track",
-    //     query: song
-    // })
-    // .then(function(response) {
-    //     JSON.stringify(console.log(response.items));
-    // })
-    // .catch(function(error) {
-    //     console.log(error);
-    // });
 
     
 
