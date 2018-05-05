@@ -10,10 +10,13 @@ var keys = require("./keys.js");
 var processArray = process.argv;
 // console.log(processArray);
 
+
+// This function will read the commands the user enters into the prompt.
 function readCommands() {
 
     // choices for the different accepted arguments
     switch(process.argv[2]) {
+
         // to display tweets
         case "my-tweets":
             showTweets();
@@ -36,11 +39,13 @@ function readCommands() {
 
 }
 
+// Calling the above function
 readCommands();
 
 
-
+// Function for displaying tweets
 function showTweets() {
+    
     var client = new twitter(keys.twitter);
 
     client.get("statuses/home_timeline", function(error, tweet, response) {
@@ -48,6 +53,7 @@ function showTweets() {
             return console.log(error);
         }
 
+        // This loop will display the user's top 10 tweets on their board.
         for (i = 0; i < tweet.length; i++) {
 
             // If you want to check the various properties of the object, uncomment the line below:
@@ -67,6 +73,8 @@ function showTweets() {
     })
 }
 
+
+// Function for searching for a song by title on Spotify.
 function spotifySong() {
 
     var spotifySearch = new spotify(keys.spotify);
@@ -95,10 +103,13 @@ function spotifySong() {
             return console.log(error);
         }
 
+        // variable to hold the best match that spotify returns
         var bestMatch = data.tracks.items[0];
 
         // console.log(bestMatch);
-        console.log("Name of Track: " + bestMatch.name);
+
+        // displaying the song info to the command prompt
+        console.log("\nName of Track: " + bestMatch.name);
         console.log("Artist: " + bestMatch.artists[0].name);
         console.log("Album: " + bestMatch.album.name);
         console.log("Song Link: " + data.tracks.items[0].external_urls.spotify);
@@ -121,19 +132,24 @@ function spotifySong() {
 
 function showMovieData() {
 
+    // empty string to hold movie name
     var movie = "";
 
+    // This loop will add each argument the user enters to the "movie" string.
     for (i = 3; i < processArray.length; i++) {
         // movie = movie + " " + processArray[i];
         movie = movie + processArray[i] + "+";
     }
 
+    // If the movie field is left blank, then the info for the movie "Mr. Nobody" will be displayed.
     if (movie === "") {
         movie = "mr+nobody";
     }
 
     // console.log(movie);
 
+
+    // request to the OMDB API
     request("https://www.omdbapi.com/?apikey=de84cb34&t=" + movie, function(error, response, body) {
         if (error) {
             return console.log(error);
@@ -151,26 +167,61 @@ function showMovieData() {
         // var title = "Title";
         // console.log(body.title);
 
+        // converts the returned body from a string into an object
         var bodyObject = JSON.parse(body);
 
         // console.log(bodyObject);
 
+        // spacing
         console.log("");
 
-        console.log("Title: " + bodyObject.Title);
-        console.log("Year: " + bodyObject.Year);
-        console.log("IMDB Rating: " + bodyObject.imdbRating);
-        console.log("Rotten Tomatoes Rating: " + bodyObject.Ratings[1].Value);
-        console.log("Country Produced: " + bodyObject.Country);
-        console.log("Language: " + bodyObject.Language);
-        console.log("");
-        console.log("Plot: " + bodyObject.Plot);
-        console.log("");
-        console.log("Actors: " + bodyObject.Actors);
+        if (bodyObject.Response==="True") {
+
+            if (bodyObject.Title != null) {
+                console.log("Title: " + bodyObject.Title);
+            }
+    
+            if (bodyObject.Year != null) {
+                console.log("Year: " + bodyObject.Year);
+            }
+    
+            if (bodyObject.imdbRating != null) {
+                console.log("IMDB Rating: " + bodyObject.imdbRating);
+            }
+    
+            if (bodyObject.Ratings[1] != null) {
+                console.log("Rotten Tomatoes Rating: " + bodyObject.Ratings[1].Value);
+            }
+    
+            if (bodyObject.Country != null) {
+                console.log("Country Produced: " + bodyObject.Country);
+            }
+    
+            if (bodyObject.Language) {
+                console.log("Language: " + bodyObject.Language);
+            }
+    
+            console.log("");
+    
+            if (bodyObject.Plot != null) {
+                console.log("Plot: " + bodyObject.Plot);
+            }
+    
+            console.log("");
+    
+            if (bodyObject.Actors != null) {
+                console.log("Actors: " + bodyObject.Actors);
+            }  
+        }
+
+        else {
+            console.log("Sorry! Movie not found!");
+        }
+
+        
 
 
 
-        /// maybe use json.parse?
     })
 }
 
