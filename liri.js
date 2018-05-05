@@ -34,6 +34,9 @@ function readCommands() {
         // to do what the text file says
         case "do-what-it-says":
             readTheRandomFile();
+            break;
+        default:
+            console.log("\nPlease enter a valid command!");
     }
 
 }
