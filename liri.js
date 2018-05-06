@@ -21,7 +21,7 @@ var processArray = process.argv;
 // console.log(processArray);
 
 
-// This function will read the commands the user enters into the prompt.
+// This function will read the arguments the user enters into the prompt.
 function readCommands() {
 
     // choices for the different accepted arguments
@@ -47,9 +47,9 @@ function readCommands() {
             readTheRandomFile();
             break;
         
-        // If any other command is entered, then...
+        // If any other argument is entered, then...
         default:
-            console.log("\nPlease enter a valid command!");
+            console.log("\nPlease enter a valid argument!");
     }
 
 }
@@ -322,7 +322,8 @@ function readTheRandomFile() {
 
         // This if/else statement is to prevent an infinite loop.
         if (commands[0] === "do-what-it-says") {
-            throw new Error("Nice try...");
+            console.log("\nNice try...\n");
+            throw new Error("Infinite Loop Detected!");
         }
 
         else {
