@@ -221,6 +221,8 @@ function showMovieData() {
     // empty string to hold movie name
     var movie = "";
 
+    var apiKey = "de84cb34";
+
     // This loop will add each argument the user enters to the "movie" string.
     for (i = 3; i < processArray.length; i++) {
         movie = movie + processArray[i] + "+";
@@ -232,7 +234,7 @@ function showMovieData() {
     }
 
     // request to the OMDB API
-    request("https://www.omdbapi.com/?apikey=de84cb34&t=" + movie, function(error, response, body) {
+    request("https://www.omdbapi.com/?apikey=" + apiKey + "&t=" + movie, function(error, response, body) {
         if (error) {
             return console.log(error);
         }
