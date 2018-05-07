@@ -29,6 +29,43 @@ Specifically, this project allows a user to enter certain commands into a comman
 
 #### Other
 * Node.js
+* an .env file with the following text:
+
+```
+# Spotify API keys
+
+SPOTIFY_ID=[YOUR_SPOTIFY_ID]
+SPOTIFY_SECRET=[YOUR_SPOTIFY_SECRET]
+
+# Twitter API keys
+
+TWITTER_CONSUMER_KEY=[YOUR_TWITTER_CONSUMER_KEY]
+TWITTER_CONSUMER_SECRET=[YOUR_TWITTER_CONSUMER_SECRET]
+TWITTER_ACCESS_TOKEN_KEY=[YOUR_TWITTER_ACCESS_TOKEN_KEY]
+TWITTER_ACCESS_TOKEN_SECRET=[YOUR_TWITTER_ACCESS_TOKEN_SECRET]
+
+```
+
+    The user must make sure to replace the items in square brackets with their own API keys and to remove the brackets when they enter their own information.
+
+* A keys.js file with the following code: 
+
+```javascript
+console.log('this is loaded');
+
+exports.twitter = {
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+};
+
+exports.spotify = {
+  id: process.env.SPOTIFY_ID,
+  secret: process.env.SPOTIFY_SECRET
+};
+
+```
 
 ### Details
 
