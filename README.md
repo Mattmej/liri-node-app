@@ -46,7 +46,7 @@ TWITTER_ACCESS_TOKEN_SECRET=[YOUR_TWITTER_ACCESS_TOKEN_SECRET]
 
 ```
 
-    The user must make sure to replace the items in square brackets with their own API keys and to remove the brackets when they enter their own information.
+The user must make sure to replace the items in square brackets with their own API keys and to remove the brackets when they enter their own information.
 
 * A keys.js file with the following code: 
 
