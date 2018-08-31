@@ -81,6 +81,8 @@ If the user attempts to enter any other argument, the app will tell the user to 
 
 This argument displays the most recent 20 tweets on the user's Twitter. Each displayed tweet has the name of the poster, the title of the post, and the date the post was created.
 
+<!-- ![liri_my_tweets]() -->
+
 ##### spotify-this-song
 
 This argument can accept additional user input. After typing this argument, the user may enter the name of a song to check on Spotify. The user may include spaces in the song name. If the user does not enter their own song, the app will look up the information for the song "The Sign" by _Ace of Base_.
