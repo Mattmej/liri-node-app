@@ -81,17 +81,30 @@ If the user attempts to enter any other argument, the app will tell the user to 
 
 This argument displays the most recent 20 tweets on the user's Twitter. Each displayed tweet has the name of the poster, the title of the post, and the date the post was created.
 
-<!-- ![liri_my_tweets]() -->
+![liri_my_tweets](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_my_tweets.gif)
+
+<br/>
+<br/>
 
 ##### spotify-this-song
 
 This argument can accept additional user input. After typing this argument, the user may enter the name of a song to check on Spotify. The user may include spaces in the song name. If the user does not enter their own song, the app will look up the information for the song "The Sign" by _Ace of Base_.
+
+![liri_spotify_default](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_spotify_default.gif)
+
+<br/>
+<br/>
 
 After the user runs this argument, the following information from Spotify will be returned and printed in the console:
 1. The name of the track
 2. The artist
 3. The album in which the song appeared
 4. A link to the song on Spotify
+
+![liri_spotify_search](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_spotify_search.gif)
+
+<br/>
+<br/>
 
 ##### movie-this
 
@@ -105,7 +118,14 @@ This argument can accept additional user input as well. After typing this argume
 7. The movie's plot
 8. The main actors in the movie.
 
+![liri_movie_search](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_movie_search.gif)
+
+<br/>
+<br/>
+
 If the user does not enter the name of a movie after this argument, the app will display the information for the movie _Mr. Nobody_.
+
+![liri_movie_default](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_movie_default.gif)
 
 ##### do-what-it-says
 
