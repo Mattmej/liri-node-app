@@ -81,10 +81,6 @@ function showTweets() {
             console.log("");                                                            // spacing
             console.log("----------------------------------");                          // separator
         }
-        // console.log(tweet);
-        // JSON.stringify(console.log(tweet), null, 2);
-        // console.log(response);
-        // JSON.stringify(console.log(response), null, 2);
     })
 }
 
