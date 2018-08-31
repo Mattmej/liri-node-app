@@ -127,10 +127,20 @@ If the user does not enter the name of a movie after this argument, the app will
 
 ![liri_movie_default](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_movie_default.gif)
 
+<br/>
+<br/>
+
 ##### do-what-it-says
 
 This argument will read the included random.txt file and run the first arguments in that text file. These arguments must be separated by commas with no spaces included between the comma and the next argument. The following is an example of how to enter the spotify-this-song arguments into the random.txt file:
 
 > spotify-this-song,"I Want it That Way"
 
+![liri_do_what_it_says](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_do_what_it_says.gif)
+
+<br/>
+<br/>
+
 If the user enters "do-what-it-says" into the random.txt file, the app will prevent the argument from running in order to prevent an infinite loop.
+
+![liri_no_infinite_loop](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_no_infinite_loop.gif)
