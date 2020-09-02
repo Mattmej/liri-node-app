@@ -49,7 +49,11 @@ function readCommands() {
         
         // If any other argument is entered, then...
         default:
-            console.log("\nPlease enter a valid argument!");
+            console.log("\nPlease enter a valid argument!" +
+                        "\n* my-tweets" + 
+                        "\n* spotify-this-song [song_name]" + 
+                        "\n* movie-this [movie_name]" + 
+                        "\n* do-what-it-says");
     }
 
 }
