@@ -17,9 +17,15 @@ Specifically, this project allows a user to enter certain commands into a comman
     * Allows the app to read a .env file.
 * Twitter for Node.js (https://www.npmjs.com/package/twitter)
 * request (https://www.npmjs.com/package/request)
+    * Allows the app to communicate with websites.
 * Node Spotify API (https://www.npmjs.com/package/node-spotify-api)
 
-##### API Keys (to be entered into an .env file)
+#### Other
+* Node.js (https://nodejs.org/en/)
+* A _Spotify for Developers_ account (https://developer.spotify.com/dashboard/login)
+* A _Twitter Developers_ account (https://developer.twitter.com/en)
+
+<!-- ##### API Keys (to be entered into an .env file)
 * Spotify ID
 * Spotify Secret
 * Twitter Consumer Key
@@ -65,7 +71,45 @@ exports.spotify = {
   secret: process.env.SPOTIFY_SECRET
 };
 
+``` -->
+
+### Installation
+
+Make sure that the latest version of _Git_ is installed to your operating system, then navigate to the directory where you wish to install the application and run the following command on the command line:
+
+> git clone https://github.com/Mattmej/liri-node-app.git
+
+After downloading the application, navigate to the root of the application and install the required Node packages by following each package's installation instructions.
+
+### Setup
+
+First, the user should create a new file in the root of the application directory. This file will be named _.env_. The file contents will be as follows:
+
 ```
+# Spotify API keys
+
+SPOTIFY_ID=[YOUR_SPOTIFY_ID]
+SPOTIFY_SECRET=[YOUR_SPOTIFY_SECRET]
+
+# Twitter API keys
+
+TWITTER_CONSUMER_KEY=[YOUR_TWITTER_CONSUMER_KEY]
+TWITTER_CONSUMER_SECRET=[YOUR_TWITTER_CONSUMER_SECRET]
+TWITTER_ACCESS_TOKEN_KEY=[YOUR_TWITTER_ACCESS_TOKEN_KEY]
+TWITTER_ACCESS_TOKEN_SECRET=[YOUR_TWITTER_ACCESS_TOKEN_SECRET]
+
+```
+
+The user will replace the items in square brackets with their own API keys, which will be obtained by following the instructions below.
+
+The user's next step will be to obtain the necessary tokens for this application to function. 
+
+##### Obtaining Twitter Keys
+
+After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. 
+
+
+
 
 ### Details
 
