@@ -108,7 +108,7 @@ The user's next step will be to obtain the necessary tokens for this application
 
 After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. 
 
-
+![twitter_developer_overview](https://github.com/Mattmej/liri-node-app/blob/master/pics/twitter_developer_overview.png)
 
 
 ### Details

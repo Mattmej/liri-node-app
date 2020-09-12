@@ -3,3 +3,9 @@ node_modules
 .DS_Store
 
 .env
+
+pics/to_sort
+
+pics/templates
+
+pics/trash
