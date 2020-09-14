@@ -106,9 +106,25 @@ The user's next step will be to obtain the necessary tokens for this application
 
 ##### Obtaining Twitter Keys
 
-After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. 
+After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. The user will then click the "Create App" button at the bottom of the page.
 
 ![twitter_developer_overview](https://github.com/Mattmej/liri-node-app/blob/master/pics/twitter_developer_overview.png)
+
+The webpage will prompt the user to give their new application a name. The user can enter any name they wish.
+
+![Name_Your_App](https://github.com/Mattmej/liri-node-app/blob/master/pics/Name_Your_App.png)
+
+Upon finishing the app's creation, the page will display the user's _API Key and API Secret_. The user should copy these keys down and save them for later. __The user has the option to view these keys later if they forget, but this option will not be available starting January 12, 2021__. 
+
+![API_Key_and_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/API_Key_and_Secret.png)
+
+From this screen, the user should once again use the leftmost sidebar to select the _Projects & Apps_ option, then the user should select their app under the _Standalone Apps_ sub-section. After reaching their app's page, the user should click on the _Keys and tokens_ tab at the top of the page.
+
+![To_App_Settings](https://github.com/Mattmej/liri-node-app/blob/master/pics/To_App_Settings.png)
+
+At the bottom of the page, the user will see a box under the _Authentication Tokens_ section. Inside the box will 
+
+
 
 
 ### Details
