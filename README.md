@@ -136,8 +136,18 @@ Clicking the _generate_ button will open a pop-up window with the user's generat
 ![Your_New_Access_Token_And_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Your_New_Access_Token_And_Secret.png)
   
 
+Now that the user has copied their API key, API secret, access token, and access secret, they can begin to add these items to the app. 
 
+The user will navigate to their _.env_ file. Under the _Twitter API Keys_ section, they will enter their keys into the respective fields, _making sure to remove the square brackets_. Here are where the user's keys should be entered:
+* \[YOUR_TWITTER_CONSUMER_KEY\] = API Key
+* \[YOUR_TWITTER_CONSUMER_SECRET\] = API Secret
+* \[YOUR_TWITTER_ACCESS_TOKEN_KEY\] = Access Token
+* \[YOUR_TWITTER_ACCESS_TOKEN_SECRET\] = Access Token Secret
 
+The user has now completed entering in their Twitter information. They will proceed to enter in their Spotify information.
+  
+
+##### Obtaining Spotify Keys
 
 
 ### Details
