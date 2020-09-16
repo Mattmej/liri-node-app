@@ -108,35 +108,35 @@ The user's next step will be to obtain the necessary tokens for this application
 
 After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. The user will then click the "Create App" button at the bottom of the page.
 
-![twitter_developer_overview](https://github.com/Mattmej/liri-node-app/blob/master/pics/twitter_developer_overview.png)
+![twitter_developer_overview](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/twitter_developer_overview.png)
   
 
 The webpage will prompt the user to give their new application a name. The user can enter any name they wish.
 
-![Name_Your_App](https://github.com/Mattmej/liri-node-app/blob/master/pics/Name_Your_App.png)
+![Name_Your_App](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/Name_Your_App.png)
   
 
-Upon finishing the app's creation, the page will display the user's _API Key and API Secret_. The user should copy these keys down and save them for later. __The user has the option to view these keys later if they forget, but this option will not be available starting January 12, 2021__. 
+Upon finishing the application's creation, the page will display the user's _API Key and API Secret_. The user should copy these keys down and save them for later. __The user has the option to view these keys later if they forget, but this option will not be available starting January 12, 2021__. 
 
-![API_Key_and_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/API_Key_and_Secret.png)
+![API_Key_and_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/API_Key_and_Secret.png)
   
 
-From this screen, the user should once again use the leftmost sidebar to select the _Projects & Apps_ option, then the user should select their app under the _Standalone Apps_ sub-section. After reaching their app's page, the user should click on the _Keys and tokens_ tab at the top of the page.
+From this screen, the user should once again use the leftmost sidebar to select the _Projects & Apps_ option, then the user should select their applicaton under the _Standalone Apps_ sub-section. After reaching their application's page, the user should click on the _Keys and tokens_ tab at the top of the page.
 
-![To_App_Settings](https://github.com/Mattmej/liri-node-app/blob/master/pics/To_App_Settings.png)
+![To_App_Settings](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/To_App_Settings.png)
   
 
 At the bottom of the page, the user will see a box under the _Authentication Tokens_ section. Inside the box will be an option to generate an access token and secret. The user will click on the _generate_ button to generate these tokens.
 
-![Generate_Access_Token_and_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Generate_Access_Token_and_Secret.png)
+![Generate_Access_Token_and_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/Generate_Access_Token_and_Secret.png)
   
 
 Clicking the _generate_ button will open a pop-up window with the user's generated access token and secret. The user should copy these keys down so that they can be used later.
 
-![Your_New_Access_Token_And_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Your_New_Access_Token_And_Secret.png)
+![Your_New_Access_Token_And_Secret](https://github.com/Mattmej/liri-node-app/blob/master/pics/Twitter/Your_New_Access_Token_And_Secret.png)
   
 
-Now that the user has copied their API key, API secret, access token, and access secret, they can begin to add these items to the app. 
+Now that the user has copied their API key, API secret, access token, and access secret, they can begin to add these items to the application. 
 
 The user will navigate to their _.env_ file. Under the _Twitter API Keys_ section, they will enter their keys into the respective fields, _making sure to remove the square brackets_. Here are where the user's keys should be entered:
 * \[YOUR_TWITTER_CONSUMER_KEY\] = API Key
@@ -149,16 +149,33 @@ The user has now completed entering in their Twitter information. They will proc
 
 ##### Obtaining Spotify Keys
 
+After creating a _Spotify for Developers_ account, the user should navigate to the _Spotify for Developers_ webpage and click on the "Dashboard" link at the top of the page. Doing so will redirect the user to a page where they can create a new application. The user will then click on the "Create App" button at the top-right of the webpage.
+
+![Spotify_Create_App](https://github.com/Mattmej/liri-node-app/blob/master/pics/Spotify/Spotify_Create_App.png)
+
+Clicking on the "Create App" button will cause a pop-up window to appear, asking for details about the application the user wishes to create. The user can name the application whatever they wish; the main purpose of this step is to retrieve a client ID and secret given via the creation of the application. After the user enters an application name and agrees with the terms of service, they can click the "create" button.
+
+![Spotify_App_Popup](https://github.com/Mattmej/liri-node-app/blob/master/pics/Spotify/Spotify_App_Popup.png)
+
+Upon creating the application, the user will be redirected to the application's page. Here, the user can view their client ID and client secret. These two items are synonymous with an access token and secret. The user should save these items for entry into the _.env_ file. 
+
+![Spotify_App_Page](https://github.com/Mattmej/liri-node-app/blob/master/pics/Spotify/Spotify_App_Page.png)
+
+Now that the user has copied their client ID and client secret, they will navigate to their _.env_ file and enter the information into the relevent fields under the _Spotify API Keys_ section. Once again, the user should make sure to remove the square brackets in each field. Here are wiere the user's keys should be entered: 
+* \[YOUR_SPOTIFY_ID\] = Client ID
+* \[YOUR_SPOTIFY_SECRET\] = Client Secret
+
+Now that the user has entered all of their information into the _.env_ file, they can now run the application.
 
 ### Details
 
-This app is run by the user via node by entering "node liri.js" into the command line. After entering that command, the user may enter one of the following arguments:
+This application is run by the user via node by entering "node liri.js" into the command line. After entering that command, the user may enter one of the following arguments:
 1. my-tweets
 2. spotify-this-song
 3. movie-this
 4. do-what-it-says
 
-If the user attempts to enter any other argument, the app will tell the user to enter a valid argument.
+If the user attempts to enter any other argument, the application will tell the user to enter a valid argument.
 
 ##### my-tweets
 
@@ -171,7 +188,7 @@ This argument displays the most recent 20 tweets on the user's Twitter. Each dis
 
 ##### spotify-this-song
 
-This argument can accept additional user input. After typing this argument, the user may enter the name of a song to check on Spotify. The user may include spaces in the song name. If the user does not enter their own song, the app will look up the information for the song "The Sign" by _Ace of Base_.
+This argument can accept additional user input. After typing this argument, the user may enter the name of a song to check on Spotify. The user may include spaces in the song name. If the user does not enter their own song, the application will look up the information for the song "The Sign" by _Ace of Base_.
 
 ![liri_spotify_default](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_spotify_default.gif)
 
@@ -206,7 +223,7 @@ This argument can accept additional user input as well. After typing this argume
 <br/>
 <br/>
 
-If the user does not enter the name of a movie after this argument, the app will display the information for the movie _Mr. Nobody_.
+If the user does not enter the name of a movie after this argument, the application will display the information for the movie _Mr. Nobody_.
 
 ![liri_movie_default](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_movie_default.gif)
 
@@ -224,6 +241,6 @@ This argument will read the included random.txt file and run the first arguments
 <br/>
 <br/>
 
-If the user enters "do-what-it-says" into the random.txt file, the app will prevent the argument from running in order to prevent an infinite loop.
+If the user enters "do-what-it-says" into the random.txt file, the application will prevent the argument from running in order to prevent an infinite loop.
 
 ![liri_no_infinite_loop](https://github.com/Mattmej/liri-node-app/blob/master/gifs/liri_no_infinite_loop.gif)
