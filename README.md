@@ -7,17 +7,17 @@ This project demonstrates how to use node packages and command line arguments to
 Specifically, this project allows a user to enter certain commands into a command line in order to perform four functions:
 1. Check the last 20 tweets on their Twitter
 2. Look up a song of the user's choosing on Spotify
-3. Look up the information on a movie of the user's choosing using the _request_ node app and the OMDB API
+3. Look up the information on a movie of the user's choosing using the _request_ node application and the OMDB API
 4. Read the contents of a text file and runs a valid argument in the file.
 
 ### Required Items
 
 ##### Node Packages
 * dotenv (https://www.npmjs.com/package/dotenv)
-    * Allows the app to read a .env file.
+    * Allows the application to read a .env file.
 * Twitter for Node.js (https://www.npmjs.com/package/twitter)
 * request (https://www.npmjs.com/package/request)
-    * Allows the app to communicate with websites.
+    * Allows the application to communicate with websites.
 * Node Spotify API (https://www.npmjs.com/package/node-spotify-api)
 
 #### Other
@@ -25,53 +25,8 @@ Specifically, this project allows a user to enter certain commands into a comman
 * A _Spotify for Developers_ account (https://developer.spotify.com/dashboard/login)
 * A _Twitter Developers_ account (https://developer.twitter.com/en)
 
-<!-- ##### API Keys (to be entered into an .env file)
-* Spotify ID
-* Spotify Secret
-* Twitter Consumer Key
-* Twitter Consumer Secret
-* Twitter Access Token Key
-* Twitter Access Token Secret
 
-#### Other
-* Node.js
-* an .env file with the following text:
 
-```
-# Spotify API keys
-
-SPOTIFY_ID=[YOUR_SPOTIFY_ID]
-SPOTIFY_SECRET=[YOUR_SPOTIFY_SECRET]
-
-# Twitter API keys
-
-TWITTER_CONSUMER_KEY=[YOUR_TWITTER_CONSUMER_KEY]
-TWITTER_CONSUMER_SECRET=[YOUR_TWITTER_CONSUMER_SECRET]
-TWITTER_ACCESS_TOKEN_KEY=[YOUR_TWITTER_ACCESS_TOKEN_KEY]
-TWITTER_ACCESS_TOKEN_SECRET=[YOUR_TWITTER_ACCESS_TOKEN_SECRET]
-
-```
-
-The user must make sure to replace the items in square brackets with their own API keys and to remove the brackets when they enter their own information.
-
-* A keys.js file with the following code: 
-
-```javascript
-console.log('this is loaded');
-
-exports.twitter = {
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-};
-
-exports.spotify = {
-  id: process.env.SPOTIFY_ID,
-  secret: process.env.SPOTIFY_SECRET
-};
-
-``` -->
 
 ### Installation
 
@@ -104,7 +59,7 @@ The user will replace the items in square brackets with their own API keys, whic
 
 The user's next step will be to obtain the necessary tokens for this application to function. 
 
-##### Obtaining Twitter Keys
+#### Obtaining Twitter Keys
 
 After creating a _Twitter Developer_ account, the user must log in to Twitter then access the Twitter Developer Portal Dashboard at https://developer.twitter.com/en/portal/dashboard. From there, they will select the _Projects & Apps_ option from the leftmost sidebar, then select the _Overview_ sub-option. The user will then click the "Create App" button at the bottom of the page.
 
@@ -147,7 +102,7 @@ The user will navigate to their _.env_ file. Under the _Twitter API Keys_ sectio
 The user has now completed entering in their Twitter information. They will proceed to enter in their Spotify information.
   
 
-##### Obtaining Spotify Keys
+#### Obtaining Spotify Keys
 
 After creating a _Spotify for Developers_ account, the user should navigate to the _Spotify for Developers_ webpage and click on the "Dashboard" link at the top of the page. Doing so will redirect the user to a page where they can create a new application. The user will then click on the "Create App" button at the top-right of the webpage.
 
